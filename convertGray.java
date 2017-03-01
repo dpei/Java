@@ -1,6 +1,7 @@
 
 /**
- * Write a description of makeGray here.
+ * ConvertGray class convert one or multiple jpeg images
+ * into grayscale color images.
  * 
  * @author Dong Pei
  * @version Feb.28.2016
