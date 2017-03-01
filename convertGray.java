@@ -2,8 +2,9 @@
 /**
  * Write a description of makeGray here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dong Pei
+ * @version Feb.28.2016
+ * @last modified Mar.1.2016
  */
 import edu.duke.*;
 import java.io.*;
