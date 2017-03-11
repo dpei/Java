@@ -2,6 +2,7 @@
 /**
  * This program encrypt the message with Carsar Cipher principle. The second method 
  * encrypt the message with two keys.
+ * A key means the steps of a letter from a Msg to enMsg
  * 
  * @author Dong Pei
  * @created Mar. 8. 2017
