@@ -33,15 +33,31 @@ public class testCaesarCipherBox {
         }
         return maxI;
     }
-    public void testCaesarCipherBox(){
+    private int getKey(String enMsg){
+        int[] freq = countLetter(enMsg);
+        int Eindex = maxIndex(freq);
+        int key = Eindex - 4;
+        if (key < 0){
+            key = 26  - (4 - Eindex);
+        }
+        return key;
+    }
+    public String decryptMsg(String enMsg){
+        int key = getKey(enMsg);
+        CaesarCipherBox cc = new CaesarCipherBox(26-key);
+        // call the function in cc
+        return cc.encryptMsg(enMsg);
+    }
+    public void testCaesarCipher(){
         FileResource fi = new FileResource();
         String Msg = fi.asString();
-        CaesarCipherBox cc = new CaesarCipherBox(23);
+        CaesarCipherBox cc = new CaesarCipherBox(18);
         String enMsg = cc.encryptMsg(Msg);
-        System.out.println("the encrypted message is (23, Cfopq)"+ enMsg);
+        System.out.println("the encrypted message is:\n"+ enMsg);
         // decrypt is not correct
-        CaesarCipherBox cc2 = new CaesarCipherBox(3);
-        String decryptMsg = cc.encryptMsg("Cfopq");
-        System.out.println("the decrypted message is "+ decryptMsg);
+        String easyDecryptMsg = cc.decryptMsg(enMsg);
+        System.out.println("the easy decrypted message with key is:\n "+ easyDecryptMsg);
+        String selfDecryptMsg = decryptMsg(enMsg);
+        System.out.println("the self decrypted message is:\n "+ selfDecryptMsg);
     }
 }

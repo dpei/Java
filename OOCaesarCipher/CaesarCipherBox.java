@@ -16,8 +16,9 @@ public class CaesarCipherBox {
     private int mainKey;
     // This is a constructor, have the same name with class
     public CaesarCipherBox(int key){
+        mainKey = key;
         alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        encryptAlphabet = alphabet.substring(key) + alphabet.substring(0,key);
+        encryptAlphabet = alphabet.substring(mainKey) + alphabet.substring(0,mainKey);
     }
     // a method that is a verb
     public String encryptMsg(String Msg){
