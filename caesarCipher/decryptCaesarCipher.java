@@ -77,7 +77,6 @@ public class decryptCaesarCipher {
             return "start value is wrong";
         } 
     }
-    // This one does not pass yet
     public String decryptTwoKey(String enMsg){
         String zeroEnMsg = halfString(enMsg, 0);
         String oneEnMsg = halfString(enMsg, 1);
