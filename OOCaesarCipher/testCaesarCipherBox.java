@@ -54,7 +54,6 @@ public class testCaesarCipherBox {
         CaesarCipherBox cc = new CaesarCipherBox(18);
         String enMsg = cc.encryptMsg(Msg);
         System.out.println("the encrypted message is:\n"+ enMsg);
-        // decrypt is not correct
         String easyDecryptMsg = cc.decryptMsg(enMsg);
         System.out.println("the easy decrypted message with key is:\n "+ easyDecryptMsg);
         String selfDecryptMsg = decryptMsg(enMsg);
