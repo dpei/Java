@@ -13,7 +13,8 @@ import edu.duke.*;
 
 public class wordsInFiles {
     private HashMap<String, ArrayList<String>> wordMap;
-    public void wordsInFile(){
+    // constructor no void sign
+    public wordsInFiles(){
         wordMap = new HashMap<String, ArrayList<String>>();
     }
     private void addWords(File f){
@@ -39,12 +40,22 @@ public class wordsInFiles {
         for (File f : di.selectedFiles()){
             addWords(f);
         }
-        
+    }
+    private ArrayList wordsInNum(int number){
+        ArrayList<String> words = new ArrayList<String>();
+        for (String s: wordMap.keySet()){
+            
+            if (wordMap.get(s).size() == number){
+                words.add(s);
+            }
+        }
+        return words;
     }
     public void tester(){
         buildWordMap();
         for (String s: wordMap.keySet()){
             System.out.println(wordMap.get(s)+"\t"+s);
         }
+        System.out.println("words that showed in three files are: "+wordsInNum(3));
     }
 }
