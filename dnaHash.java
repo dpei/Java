@@ -4,7 +4,7 @@
  * 
  * @author Dong Pei
  * @created Mar. 28. 2017
- * @last modified Mar. 28, 2017
+ * @last modified Mar. 29, 2017
  */
 
 
@@ -18,7 +18,7 @@ public class dnaHash {
     private void buildCodonMap(int start, String dna){
         dnaMap.clear();
         // interate through the string
-        for (int k=0; k<dna.length(); k++){
+        for (int k=start; k<dna.length()-2; k=k+3){
             String codon = dna.substring(k, k+3);
             if(!dnaMap.containsKey(codon)){
                 dnaMap.put(codon,1);
@@ -27,18 +27,23 @@ public class dnaHash {
             }
         }
     }
-
-    //private getCommon(){
-        // get the biggest frequency number from the hash map.
-        
-        
-    //}
-    public void tester(){
-        buildCodonMap(0, "ATGGGC")
+    // get the biggest frequency number from the hash map. return the codon that has the most occurence
+    private String getCommon(HashMap<String, Integer> dnaMap){
+        String maxCodon = null;
+        int maxFreq = 0;
         for (String s : dnaMap.keySet()){
-            System.out.println(dnaMap);
+            if (dnaMap.get(s) > maxFreq){
+                maxFreq = dnaMap.get(s);
+                maxCodon = s;
+            }
+        }
+        return maxCodon;
     }
-    //     private void printCounts(){
-    //         
-    //     }
+    public void tester(){
+        buildCodonMap(2, "CGTTCAAGTTCAA");
+        System.out.println("the most frequent codon is: "+ getCommon(dnaMap));
+        for (String s : dnaMap.keySet()){
+            System.out.println(dnaMap.get(s)+ "\t"+s);
+        }
+    }
 }
