@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Tester here.
+ * Modified from the duke project, tested all methods in LogAnalyzer.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dong Pei
+ * @version Mar. 30. 2017
  */
 
 import java.util.*;
@@ -23,6 +23,7 @@ public class Tester
         la.readFile("short-test_log");
         la.printAll();
         System.out.println("the unique IP number is: "+ la.countUniqueIPs());
+        System.out.println("the unique IPs and freqs are: "+ la.visitPerIP());
 
         System.out.println("TEST CASE 2");
         LogAnalyzer la2 = new LogAnalyzer();

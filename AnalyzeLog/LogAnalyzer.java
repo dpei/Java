@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class LogAnalyzer here.
+ * Added different methods into analyzer
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dong Pei
+ * @last modified Mar. 30. 2017
  */
 
 import java.util.*;
@@ -46,6 +46,19 @@ public class LogAnalyzer
              }
          }
          return uniqueIPs.size();
+     }
+     
+     public HashMap<String, Integer> visitPerIP(){
+         HashMap<String, Integer> counts = new HashMap<String, Integer>();
+         for (LogEntry record : records){
+             String IP = record.getIpAddress();
+             if (!counts.containsKey(IP)){
+                 counts.put(IP, 1);
+             } else {
+                 counts.put(IP, counts.get(IP)+1);
+             }
+         }
+         return counts;
      }
      
      public void printAll() {
