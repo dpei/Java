@@ -18,8 +18,17 @@ public class Tester
     }
     
     public void testLogAnalyzer() {
+        System.out.println("TEST CASE 1");
         LogAnalyzer la = new LogAnalyzer();
         la.readFile("short-test_log");
         la.printAll();
+        System.out.println("the unique IP number is: "+ la.countUniqueIPs());
+
+        System.out.println("TEST CASE 2");
+        LogAnalyzer la2 = new LogAnalyzer();
+        la2.readFile("weblog-short_log");
+        la2.printAll();
+        System.out.println("the unique IP number in Sep 14 is: "+ la2.uniqueIpOnDay("Sep 14"));
+        System.out.println("the unique IP number in Sep 30 is: "+ la2.uniqueIpOnDay("Sep 30"));
     }
 }
