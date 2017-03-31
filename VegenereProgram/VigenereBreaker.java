@@ -1,5 +1,6 @@
 /**
- * VigenereBreaker class was written by Dong to decrypt the VigenereBreaker
+ * VigenereBreaker class was created by Dong to decrypt the VigenereBreaker.
+ * The program assumes the VC encoding word is 2 or more in length
  * 
  * 
  * @author Dong Pei
@@ -24,13 +25,6 @@ public class VigenereBreaker {
         }
         return result.toString();
     }
-    // test cases
-    private void testVigenereBreaker(){
-        System.out.println("adgjm equals: "+sliceString("abcdefghijklm", 0, 3));
-        System.out.println("behk equals: "+sliceString("abcdefghijklm", 1, 3));
-        System.out.println("ej equals: "+sliceString("abcdefghijklm", 4, 5));
-    }
-    
     public int[] tryKeyLength(String encrypted, int klength, char mostCommon) {
         int[] key = new int[klength];
         for (int i=0; i<klength; i++){
@@ -41,21 +35,70 @@ public class VigenereBreaker {
         }
         return key;
     }
-    // test cases
+    public HashSet<String> readDictionary(FileResource fi){
+        HashSet<String> dic = new HashSet<String>();
+        for (String line : fi.lines()){
+            String word = line.toLowerCase();
+            dic.add(line);
+        }
+        return dic;
+    }
+    public int countWords(String message, HashSet<String> dic){
+        int valid = 0;
+        String[] msg = message.split("\\W+");
+        for (String word : msg){
+            if (dic.contains(word)){
+                valid ++;
+            }
+        }
+        return valid;
+    }
+    public String breakForLanguage(String enMsg){
+        HashSet<String> dic = readDictionary(new FileResource("dictionaries/English"));
+        int maxValid = 0;
+        String Msg = null;
+        for (int i=2; i<101; i++) {
+            int[] key = tryKeyLength(enMsg, i, 'e');
+            VigenereCipher vc = new VigenereCipher(key);
+            String tempMsg = vc.decrypt(enMsg);
+            int valid = countWords(tempMsg, dic);
+            if (valid > maxValid){
+                maxValid = valid;
+                Msg = tempMsg;
+            }
+        }
+        return Msg;
+    }
+    public void breakVigenere () {
+        FileResource fi = new FileResource("VigenereTestData/athens_keyflute.txt");
+        String enMsg = fi.asString();
+        System.out.println("The encrypted message is: "+enMsg);
+        System.out.println("Based on calculation, the decrypted message is: "
+                            +breakForLanguage(enMsg));
+    }
+    
+    
+    
+    
+    // all private test methods
+    private void testReadDic(){
+        HashSet<String> dic = readDictionary(new FileResource("dictionaries/English"));
+        System.out.println(dic.contains("are"));
+    }
     private void testTryKeyLength(){
         FileResource fi = new FileResource("VigenereTestData/athens_keyflute.txt");
         String enMsg = fi.asString();
         String key = Arrays.toString(tryKeyLength(enMsg, 5, 'e'));
         System.out.println(key);
     }
-
-    public void breakVigenere () {
-        FileResource fi = new FileResource("VigenereTestData/athens_keyflute.txt");
-        String enMsg = fi.asString();
-        System.out.println(enMsg);
-        int[] key = tryKeyLength(enMsg, 5, 'e');
-        VigenereCipher vc = new VigenereCipher(key);
-        System.out.println(vc.decrypt(enMsg));
+    // test cases
+    private void testVigenereBreaker(){
+        System.out.println("adgjm equals: "+sliceString("abcdefghijklm", 0, 3));
+        System.out.println("behk equals: "+sliceString("abcdefghijklm", 1, 3));
+        System.out.println("ej equals: "+sliceString("abcdefghijklm", 4, 5));
     }
-    
+    public void testCountWords(){
+        HashSet<String> dic = readDictionary(new FileResource("dictionaries/English"));
+        System.out.println(countWords("I am a girl", dic));
+    }
 }
