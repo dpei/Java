@@ -32,4 +32,16 @@ public class Tester {
         System.out.println("the decrypted message is (Portuguese): "+ck2.decrypt(enMsg2));
         
     }
+    public void testVigenereCipher(){
+        FileResource fi = new FileResource("VigenereTestData/titus-small.txt");
+        String Msg = fi.asString();
+        int[] key = {17,14,12,4};
+        VigenereCipher vc = new VigenereCipher(key);
+        System.out.println("the encrpyted message is : "+vc.encrypt(Msg));
+        
+    }
+    public void testVigenereBreaker(){
+        System.out.println(sliceString);
+        
+    }
 }
