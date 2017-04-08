@@ -35,6 +35,34 @@ public class EarthQuakeClient {
         }
         return answer;
     }
+    
+    public ArrayList<QuakeEntry> filterByDepth(ArrayList<QuakeEntry> quakeData, double minDepth,
+    double maxDepth){
+        ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
+        for (QuakeEntry entry : quakeData){
+            if (entry.getDepth() > minDepth && entry.getDepth() < maxDepth) {
+                answer.add(entry);
+            }
+        }
+        return answer;
+    }
+    
+    public ArrayList<QuakeEntry> filterByPhrase(ArrayList<QuakeEntry> quakeData, String location, 
+    String word){
+        ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
+        for (QuakeEntry entry : quakeData){
+            if (entry.getInfo().startsWith(word) && location.equals("start")){
+                answer.add(entry);
+            }
+            if (entry.getInfo().endsWith(word) && location.equals("end")){
+                answer.add(entry);
+            }
+            if (entry.getInfo().contains(word) && location.equals("any")){
+                answer.add(entry);
+            }
+        }
+        return answer;
+    }
 
     public void dumpCSV(ArrayList<QuakeEntry> list){
         System.out.println("Latitude,Longitude,Magnitude,Info");
@@ -82,8 +110,30 @@ public class EarthQuakeClient {
         for (QuakeEntry entry : answer){
             System.out.println(entry.getLocation().distanceTo(city)/1000+"\t"+entry.getInfo());
         }
-        
-        
+    }
+    
+    public void quakesOfDepth(){
+        EarthQuakeParser parser = new EarthQuakeParser();
+        String source = "data/nov20quakedatasmall.atom";
+        ArrayList<QuakeEntry> list  = parser.read(source);
+        ArrayList<QuakeEntry> answer = filterByDepth(list, -10000.0, -5000.0);
+        System.out.println("A total of "+answer.size()+ 
+                            " quakes have depath between -10000 and -5000");
+        for (QuakeEntry entry : answer){
+            System.out.println(entry);
+        }
+    }
+    
+    public void testFilterByPhrase(){
+        EarthQuakeParser parser = new EarthQuakeParser();
+        String source = "data/nov20quakedatasmall.atom";
+        ArrayList<QuakeEntry> list  = parser.read(source);
+        ArrayList<QuakeEntry> answer = filterByPhrase(list, "end", "California");
+        System.out.println("A total of "+answer.size()+ 
+                            " quakes have end with the word California");
+        for (QuakeEntry entry : answer){
+            System.out.println(entry);
+        }
     }
 
     public void createCSV(){
