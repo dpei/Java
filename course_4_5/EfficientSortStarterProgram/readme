@@ -1,0 +1,2 @@
+The QuakeEntry was modified to sort data with new parameters. 
+The TitleAndDepthComparator was generated to sort with two new parameters.
