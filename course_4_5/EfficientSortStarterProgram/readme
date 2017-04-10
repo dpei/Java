@@ -1,2 +1,3 @@
 The QuakeEntry was modified to sort data with new parameters. 
 The TitleAndDepthComparator was generated to sort with two new parameters.
+The DifferentSorters class was modified to test new methods generated before.
