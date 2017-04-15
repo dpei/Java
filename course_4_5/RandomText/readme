@@ -1,0 +1,3 @@
+Modified the random text generator based on Markov model. 
+Adjusted the predicted key length with 1, 4 and N number
+Added several classes and test cases
