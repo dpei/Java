@@ -1,0 +1,3 @@
+Created interface and abstract class to implement MarkovModel random text generator.
+Implement open close principle.
+open to extension and close to modification.
