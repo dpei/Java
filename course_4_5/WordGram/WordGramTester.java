@@ -30,4 +30,13 @@ public class WordGramTester {
 		}
 	}
 	
+	public void testShiftAdd(){
+	    String source = "this is a test please ignore the rest";
+		String[] words = source.split("\\s+");
+	    int size = 4;
+	    WordGram wg = new WordGram(words,0,size);
+	    WordGram wgShift = wg.shiftAdd("tesss");
+	    System.out.println("The length is: "+wgShift.length()+"\t"+wgShift);
+	}
+	
 }

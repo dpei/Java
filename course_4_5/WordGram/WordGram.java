@@ -1,3 +1,13 @@
+/** Finished shiftAdd() and equals() method in this class
+ * 
+ * 
+ * @author: Duke team
+ * @modified by: Dong Pei
+ * @last modified: Apr. 18. 2017
+ * 
+ */
+
+
 
 import java.util.*;
 public class WordGram {
@@ -43,13 +53,18 @@ public class WordGram {
     }
 
     public WordGram shiftAdd(String word) { 
-        WordGram out = new WordGram(myWords, 0, myWords.length);
-        for (int i=0; i<myWords.length; i++){
-            out.wordAt(i) = myWords.wordAt(i+1);
+        String[] words = new String[this.length()];
+        for (int i=0; i<words.length-1; i++) {
+            // this. is used to represent current object in the class
+            words[i]=this.wordAt(i+1);
         }
-        System.arraycopy(source, start, myWords, 0, size);
-        out[myWords.length] = word;
-        return out;
+        words[words.length-1]=word;
+        // calculate String array before initiate the object
+        return new WordGram(words,0,words.length);
+    }
+    
+    public int hashCode(){
+        return this.toString().hashCode();
     }
 
 }
