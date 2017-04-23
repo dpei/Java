@@ -1,0 +1,19 @@
+// Convert blue color to yellow color
+var DukeDevil = new SimpleImage("duke_blue_devil.png")
+print("This is the original Duke Devil")
+print(DukeDevil)
+
+function BlueToYellow(pixel){
+    if (pixel.getRed() != 255) {
+        pixel.setRed(255);
+        pixel.setGreen(255);	
+        pixel.setBlue(0);    
+        return pixel;
+    }
+}
+
+for (var pixel of DukeDevil.values()){
+    pixel = BlueToYellow(pixel);
+}
+print("Change color to a Yellow Devil!");
+print(DukeDevil);

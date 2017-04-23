@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>A Pen by  peidong</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <h1>
+  Vote for my resume if you like it
+</h1>
+
+<canvas id="can1"
+        class=orangeback>
+</canvas>
+
+
+<p>
+<input type="button"
+value="Change blue color?"
+onclick="changeBlue()">
+</p>
+
+<canvas id="can2"
+        class=orangeback>
+</canvas>
+
+<p>
+<input type="button"
+value="You support me?"
+onclick="changeRed()">
+
+<input type="color"
+value="#FF0000" id = "color"
+
+  onchange="doColor()">
+<!-- this can also be onclick="doColor()"-->
+
+
+<input type="range"
+min = "10" max = "100" value="10" id = "slider" oninput="doSquare()">
+
+</p>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+// Given a picture. Put a layer of three color to the picture
+
+var img = new SimpleImage("skyline.jpg");
+for (var pixel of img.values()){
+    // left side
+    if (pixel.getX() <= img.getWidth()/3){
+        pixel.setRed(255);
+    
+    //right side
+    } else if (pixel.getX() >= img.getWidth()/3*2) {
+        pixel.setBlue(255);
+    
+    //in the middle
+    } else {
+        pixel.setGreen(255);
+    }
+}
+
+
+print(img)

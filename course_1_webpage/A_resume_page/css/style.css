@@ -1,0 +1,46 @@
+/* list class when changing specific list */
+h1{
+  text-align:center;
+}
+
+/* Changing format using IDs*/
+#d1{
+  background-color:yellow;
+  color:gray;
+  font:arial;
+  width:140pt;
+  font-size:18pt;
+  padding:5pt;
+  margin:10pt;
+  border:3px solid black;
+}
+#roomImg {
+  float:right;
+}
+
+
+/* change color using classes
+/* original color for the two component*/
+.orangeback{
+  background-color:orange;
+  width:140pt;
+}
+.fuchsiaback{
+  background-color:fuchsia;
+  width:140pt;
+}
+
+/*Change color with blue and red*/
+.blueback{
+  background-color:blue;
+  width:140pt;
+}
+.redback{
+  background-color:red;
+  width:140pt;
+}
+
+.foodLi{
+  color:#3F3FBF;
+}
+/* reuse the style a lot later */

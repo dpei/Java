@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>combine green bg</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <!-- This web page is used to combine two upload pictures, front page should have green background-->
+
+<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js" >
+</script>
+
+<h1>Play green background</h1>
+<canvas id="canft"> </canvas>
+<canvas id="canbg"> </canvas>
+
+<!-- Two upload button -->
+<p>
+  Front picture: 
+  <input type="file" id="finput" multiple="false" accept="image/*" onchange="uploadf()" >
+  Background: 
+  <input type="file" id="binput" multiple="false" accept="image/*" onchange="uploadb()" >
+</p>  
+
+<!-- Combine button and reset button -->
+<p>
+  <input type="button" id="changeGray" value="Merge" onclick="createComposite()">
+</p>
+<p>
+  <input type="button" id="changeGray" value="Reset" onclick="reset()">
+</p>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>

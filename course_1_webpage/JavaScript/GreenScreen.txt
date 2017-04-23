@@ -1,0 +1,20 @@
+// Green screen algorithm
+// replace the green pixels in front image and replace with background pixel
+
+// Import front and back image
+var ftImg = new SimpleImage("drewRobert.png");
+var bgImg = new SimpleImage("dinos.png");
+var newImg = new SimpleImage(ftImg.getWidth(),ftImg.getHeight());
+
+for (var pixel of ftImg.values()){
+    // If front is green
+    if (pixel.getGreen() > pixel.getRed() + pixel.getBlue()){
+        //the new image takes bgImg pixel
+        var bgPixel = bgImg.getPixel(pixel.getX(), pixel.getY());
+        newImg.setPixel(pixel.getX(), pixel.getY(), bgPixel);
+    } else {
+        // the new image takes ftImg pixel
+        newImg.setPixel(pixel.getX(), pixel.getY(), pixel);
+    }
+}
+print(newImg)

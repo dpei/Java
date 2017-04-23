@@ -1,0 +1,35 @@
+// Dong Pei
+// Feb 24 2017
+// setBlack() function
+// Change the color of pixel to black
+
+function setBlack(pixel){
+    pixel.setRed(0);
+    pixel.setGreen(0);
+    pixel.setBlue(0);
+    return pixel;
+}
+
+
+// addBoarder() add black boarder at the edges of the picture.
+// the result picture has same resolution with original
+// && is and ; || is or condition in if clause
+// in the addBoarder() function x is the number of black pixels to the boarder
+var img = new SimpleImage("smallpanda.png");
+print(img);
+function addBoarder(x){
+    for (var pixel of img.values()){
+    if (pixel.getX() > x && pixel.getX() < img.getWidth()-x &&
+        pixel.getY() > x && pixel.getY() < img.getHeight()-x){
+            pixel = pixel;
+        }
+    else{
+        pixel = setBlack(pixel);
+        y=y
+        }
+    }
+    return(img)
+}
+
+print("boarder added");
+print(addBoarder(45));

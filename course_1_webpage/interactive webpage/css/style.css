@@ -1,0 +1,14 @@
+canvas{
+  width:200pt;
+  height:100pt;
+  margin:20pt;
+  border:2pt solid gray;
+}
+
+.orangeback{
+  background-color:orange
+}
+.blueback{
+  background-color:blue
+}
+
