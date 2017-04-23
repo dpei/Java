@@ -7,6 +7,6 @@ course3 Java Programming: Arrays, Lists, and Structured Data
 
 course4 Java Programming: Principles of Software Design
 
-from Duke University
+from Duke
 
 last modified Apr. 23. 2017
