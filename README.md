@@ -1,4 +1,8 @@
 # Java
-This folder contains answer keys I generated for the coursera class
-Java Programming: Solving Problems with Software
+This folder contains answer keys for programming assignments I generated for the Coursera class
+
+course2 Java Programming: Solving Problems with Software
+course3 Java Programming: Arrays, Lists, and Structured Data
+course4 Java Programming: Principles of Software Design
+
 from Duke University
