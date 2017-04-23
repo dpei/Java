@@ -1,5 +1,5 @@
 # Java
-This folder contains answer keys for programming assignments I generated for the Coursera class
+This folder contains answer keys for programming assignments for the Coursera courses:
 
 course1 Programming Foundations with JavaScript, HTML and CSS
 
